@@ -1,0 +1,15 @@
+/home/adn/Documents/Programming/Learning/Docker/c_sharp_jenkins_pt4/jenkins-learning-csharp_pt2/Program/bin/Debug/net8.0/Program
+/home/adn/Documents/Programming/Learning/Docker/c_sharp_jenkins_pt4/jenkins-learning-csharp_pt2/Program/bin/Debug/net8.0/Program.deps.json
+/home/adn/Documents/Programming/Learning/Docker/c_sharp_jenkins_pt4/jenkins-learning-csharp_pt2/Program/bin/Debug/net8.0/Program.runtimeconfig.json
+/home/adn/Documents/Programming/Learning/Docker/c_sharp_jenkins_pt4/jenkins-learning-csharp_pt2/Program/bin/Debug/net8.0/Program.dll
+/home/adn/Documents/Programming/Learning/Docker/c_sharp_jenkins_pt4/jenkins-learning-csharp_pt2/Program/bin/Debug/net8.0/Program.pdb
+/home/adn/Documents/Programming/Learning/Docker/c_sharp_jenkins_pt4/jenkins-learning-csharp_pt2/Program/obj/Debug/net8.0/Program.GeneratedMSBuildEditorConfig.editorconfig
+/home/adn/Documents/Programming/Learning/Docker/c_sharp_jenkins_pt4/jenkins-learning-csharp_pt2/Program/obj/Debug/net8.0/Program.AssemblyInfoInputs.cache
+/home/adn/Documents/Programming/Learning/Docker/c_sharp_jenkins_pt4/jenkins-learning-csharp_pt2/Program/obj/Debug/net8.0/Program.AssemblyInfo.cs
+/home/adn/Documents/Programming/Learning/Docker/c_sharp_jenkins_pt4/jenkins-learning-csharp_pt2/Program/obj/Debug/net8.0/Program.csproj.CoreCompileInputs.cache
+/home/adn/Documents/Programming/Learning/Docker/c_sharp_jenkins_pt4/jenkins-learning-csharp_pt2/Program/obj/Debug/net8.0/Program.sourcelink.json
+/home/adn/Documents/Programming/Learning/Docker/c_sharp_jenkins_pt4/jenkins-learning-csharp_pt2/Program/obj/Debug/net8.0/Program.dll
+/home/adn/Documents/Programming/Learning/Docker/c_sharp_jenkins_pt4/jenkins-learning-csharp_pt2/Program/obj/Debug/net8.0/refint/Program.dll
+/home/adn/Documents/Programming/Learning/Docker/c_sharp_jenkins_pt4/jenkins-learning-csharp_pt2/Program/obj/Debug/net8.0/Program.pdb
+/home/adn/Documents/Programming/Learning/Docker/c_sharp_jenkins_pt4/jenkins-learning-csharp_pt2/Program/obj/Debug/net8.0/Program.genruntimeconfig.cache
+/home/adn/Documents/Programming/Learning/Docker/c_sharp_jenkins_pt4/jenkins-learning-csharp_pt2/Program/obj/Debug/net8.0/ref/Program.dll
