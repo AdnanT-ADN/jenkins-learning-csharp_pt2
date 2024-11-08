@@ -1,0 +1,17 @@
+/home/adn/Documents/Programming/Learning/Docker/c_sharp_jenkins_pt4/jenkins-learning-csharp_pt2/src/AProgram/obj/Debug/net8.0/AProgram.GeneratedMSBuildEditorConfig.editorconfig
+/home/adn/Documents/Programming/Learning/Docker/c_sharp_jenkins_pt4/jenkins-learning-csharp_pt2/src/AProgram/obj/Debug/net8.0/AProgram.csproj.CoreCompileInputs.cache
+/home/adn/Documents/Programming/Learning/Docker/c_sharp_jenkins_pt4/jenkins-learning-csharp_pt2/src/AProgram/obj/Debug/net8.0/AProgram.sourcelink.json
+/home/adn/Documents/Programming/Learning/Docker/c_sharp_jenkins_pt4/jenkins-learning-csharp_pt2/src/AProgram/bin/Debug/net8.0/AProgram
+/home/adn/Documents/Programming/Learning/Docker/c_sharp_jenkins_pt4/jenkins-learning-csharp_pt2/src/AProgram/bin/Debug/net8.0/AProgram.deps.json
+/home/adn/Documents/Programming/Learning/Docker/c_sharp_jenkins_pt4/jenkins-learning-csharp_pt2/src/AProgram/bin/Debug/net8.0/AProgram.runtimeconfig.json
+/home/adn/Documents/Programming/Learning/Docker/c_sharp_jenkins_pt4/jenkins-learning-csharp_pt2/src/AProgram/bin/Debug/net8.0/AProgram.dll
+/home/adn/Documents/Programming/Learning/Docker/c_sharp_jenkins_pt4/jenkins-learning-csharp_pt2/src/AProgram/bin/Debug/net8.0/AProgram.pdb
+/home/adn/Documents/Programming/Learning/Docker/c_sharp_jenkins_pt4/jenkins-learning-csharp_pt2/src/AProgram/bin/Debug/net8.0/MathsStuff.dll
+/home/adn/Documents/Programming/Learning/Docker/c_sharp_jenkins_pt4/jenkins-learning-csharp_pt2/src/AProgram/bin/Debug/net8.0/MathsStuff.pdb
+/home/adn/Documents/Programming/Learning/Docker/c_sharp_jenkins_pt4/jenkins-learning-csharp_pt2/src/AProgram/obj/Debug/net8.0/AProgram.csproj.AssemblyReference.cache
+/home/adn/Documents/Programming/Learning/Docker/c_sharp_jenkins_pt4/jenkins-learning-csharp_pt2/src/AProgram/obj/Debug/net8.0/AProgram.csproj.Up2Date
+/home/adn/Documents/Programming/Learning/Docker/c_sharp_jenkins_pt4/jenkins-learning-csharp_pt2/src/AProgram/obj/Debug/net8.0/AProgram.dll
+/home/adn/Documents/Programming/Learning/Docker/c_sharp_jenkins_pt4/jenkins-learning-csharp_pt2/src/AProgram/obj/Debug/net8.0/refint/AProgram.dll
+/home/adn/Documents/Programming/Learning/Docker/c_sharp_jenkins_pt4/jenkins-learning-csharp_pt2/src/AProgram/obj/Debug/net8.0/AProgram.pdb
+/home/adn/Documents/Programming/Learning/Docker/c_sharp_jenkins_pt4/jenkins-learning-csharp_pt2/src/AProgram/obj/Debug/net8.0/AProgram.genruntimeconfig.cache
+/home/adn/Documents/Programming/Learning/Docker/c_sharp_jenkins_pt4/jenkins-learning-csharp_pt2/src/AProgram/obj/Debug/net8.0/ref/AProgram.dll
