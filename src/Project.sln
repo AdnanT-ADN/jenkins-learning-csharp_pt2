@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MathsStuff", "MathsStuff\Ma
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AProgram", "AProgram\AProgram.csproj", "{743FE4AE-0556-4274-9F34-3033071AB3AA}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MathsStuff.Tests", "MathsStuff.Tests\MathsStuff.Tests.csproj", "{15979291-E4CC-48B2-8F38-D509FF0F4E86}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -24,5 +26,9 @@ Global
 		{743FE4AE-0556-4274-9F34-3033071AB3AA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{743FE4AE-0556-4274-9F34-3033071AB3AA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{743FE4AE-0556-4274-9F34-3033071AB3AA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{15979291-E4CC-48B2-8F38-D509FF0F4E86}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{15979291-E4CC-48B2-8F38-D509FF0F4E86}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{15979291-E4CC-48B2-8F38-D509FF0F4E86}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{15979291-E4CC-48B2-8F38-D509FF0F4E86}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
