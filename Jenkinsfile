@@ -23,14 +23,18 @@ pipeline {
         }
 
         stage("Run Unit Tests") {
-            script {
-                echo "TODO Make this run unit tests"
+            steps {
+                script {
+                    echo "TODO Make this run unit tests"
+                }
             }
         }
 
         stage("Archive Test Results") {
-            script {
-                echo "TODO Make this archive the test results in a .trx file to Jenkings"
+            steps {
+                script {
+                    echo "TODO Make this archive the test results in a .trx file to Jenkings"
+                }
             }
         }
 
