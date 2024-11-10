@@ -1,5 +1,10 @@
 pipeline {
-    agent any
+    agent {
+        docker {
+            image "docker:latest"
+            args "-v /var/run/docker.sock:/bar/run/docker.sock"
+        }
+    }
 
     environment {
         DOCKER_IMG = "ms-cs-docker-test-1"
@@ -26,6 +31,7 @@ pipeline {
             steps {
                 script {
                     echo "TODO Make this run unit tests"
+                    sh "docker run --rm $DOCKER_IMG dotnet test"
                 }
             }
         }
