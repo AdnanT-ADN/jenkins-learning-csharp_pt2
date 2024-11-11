@@ -1,8 +1,8 @@
 pipeline {
     agent {
         docker {
-            image "docker:latest"
-            args "-v /var/run/docker.sock:/bar/run/docker.sock"
+            image "docker:20.10.8" // Ensure Docker CLI is included in the image
+            args "-v /var/run/docker.sock:/var/run/docker.sock" // Correct socket path
         }
     }
 
