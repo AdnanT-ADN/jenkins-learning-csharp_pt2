@@ -58,7 +58,7 @@ pipeline {
                 script {
                     echo "Running Unit Tests in Docker"
                     // Create a directory for storing test results
-                    sh "mkdir -p TestResults"
+                    sh "mkdir -p $TEST_RESULTS_DIR"
 
                     // Run dotnet test inside the Docker container
                     sh """
