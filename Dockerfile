@@ -30,7 +30,7 @@ WORKDIR /App
 COPY --from=build-env /App/publish/ .
 
 # Copy the test results
-COPY --from=build-env /App/TestResults/ ./TestResults
+COPY --from=build-env /App/src/TestResults/ ./TestResults
 
 # ENTRYPOINT ["dotnet", "DotNet.Docker.dll"]
 ENTRYPOINT [ "dotnet", "AProgram.dll" ]
