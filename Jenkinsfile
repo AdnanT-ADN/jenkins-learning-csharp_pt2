@@ -36,18 +36,18 @@ pipeline {
                 //     sh "docker run --rm $DOCKER_IMG dotnet test /App/src"
                 // }
                 script {
-            echo "Running Unit Tests in Docker"
-            // Create a directory for storing test results
-            sh "mkdir -p TestResults"
+                    echo "Running Unit Tests in Docker"
+                    // Create a directory for storing test results
+                    sh "mkdir -p TestResults"
 
-            // Run dotnet test inside the Docker container
-            sh """
-                docker run --rm \
-                -v $WORKSPACE/TestResults:/App/src/TestResults \
-                $DOCKER_IMG \
-                dotnet test /App/src -c Release --logger "trx;LogFileName=/App/src/TestResults/TestResults.trx"
-            """
-        }
+                    // Run dotnet test inside the Docker container
+                    sh """
+                        docker run --rm \
+                        -v $WORKSPACE/TestResults:/App/src/TestResults \
+                        $DOCKER_IMG \
+                        dotnet test /App/src -c Release --logger "trx;LogFileName=/App/src/TestResults/TestResults.trx"
+                    """
+                }
             }
         }
 

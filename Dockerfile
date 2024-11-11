@@ -14,6 +14,10 @@ RUN dotnet restore
 # Build the solution in Release mode
 RUN dotnet build -c Release --no-restore
 
+# Run tests and output results in .trx format
+RUN mkdir -p /App/TestResults
+RUN dotnet test -c Release --no-build --logger "trx;LogFileName=/App/TestResults/TestResults.trx"
+
 # Publish the main project to a separate directory
 RUN dotnet publish AProgram -c Release -o /App/publish --no-restore
 
@@ -22,7 +26,11 @@ FROM mcr.microsoft.com/dotnet/aspnet:8.0@sha256:6c4df091e4e531bb93bdbfe7e7f0998e
 
 WORKDIR /App
 
+# Copy the published app from the build environment
 COPY --from=build-env /App/publish/ .
 
+# Copy the test results
+COPY --from=build-env /App/TestResults/ ./TestResults
+
 # ENTRYPOINT ["dotnet", "DotNet.Docker.dll"]
-# ENTRYPOINT [ "dotnet", "AProgram.dll" ]
+ENTRYPOINT [ "dotnet", "AProgram.dll" ]
