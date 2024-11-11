@@ -3,6 +3,7 @@ pipeline {
 
     environment {
         DOCKER_IMG = "ms-cs-docker-test-1"
+        TEST_RESULTS_DIR = "./TestResults"
     }
 
     stages {
@@ -25,6 +26,18 @@ pipeline {
                 script {
                     echo "Building Docker Image"
                     sh "docker build -t $DOCKER_IMG -f Dockerfile ."
+                }
+            }
+        }
+
+        stage("Retrieve Test Results") {
+            steps {
+                script {
+                    echo "Retrieving Test Results from Docker Image"
+                    sh "mkdir -p $TEST_RESULTS_DIR"
+                    sh "docker create --name temp-container $DOCKER_IMG"
+                    sh "docker cp temp-container:/App/TestResults/TestResults.trx $TEST_RESULTS_DIR"
+                    sh "docker rm temp-container"
                 }
             }
         }
