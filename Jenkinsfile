@@ -33,7 +33,7 @@ pipeline {
             steps {
                 script {
                     echo "TODO Make this run unit tests"
-                    sh "docker run --rm $DOCKER_IMG dotnet test"
+                    sh "docker run --rm $DOCKER_IMG dotnet test /App/src"
                 }
             }
         }
