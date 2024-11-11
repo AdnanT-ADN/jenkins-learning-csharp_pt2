@@ -80,7 +80,7 @@ pipeline {
                     echo "TODO Make this archive the test results in a .trx file to Jenkings"
                 }
                 archiveArtifacts artifacts: "$TEST_RESULTS_DIR/*.trx", allowEmptyArchive: true
-                junit "$TEST_RESULTS_DIR/*.trx"
+                junit "$WORKSPACE/$TEST_RESULTS_DIR/*.trx"
             }
         }
 
