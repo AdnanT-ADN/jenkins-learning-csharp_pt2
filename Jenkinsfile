@@ -70,7 +70,6 @@ pipeline {
 
                     // Debug: List contents of TestResults directory to confirm output
                     sh "ls -la $WORKSPACE/$TEST_RESULTS_DIR"
-                    sh "pwd"
                 }
             }
         }
@@ -83,7 +82,7 @@ pipeline {
                 sh "chmod -R 755 $TEST_RESULTS_DIR"
 
                 archiveArtifacts artifacts: "$TEST_RESULTS_DIR/*.trx", allowEmptyArchive: true
-                junit "$TEST_RESULTS_DIR/*.trx"
+                junit testResults: "$TEST_RESULTS_DIR/*.trx"
             }
         }
 
