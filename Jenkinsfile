@@ -3,7 +3,7 @@ pipeline {
 
     environment {
         DOCKER_IMG = "ms-cs-docker-test-1"
-        TEST_RESULTS_DIR = "./TestResults"
+        TEST_RESULTS_DIR = "TestResults"
     }
 
     stages {
