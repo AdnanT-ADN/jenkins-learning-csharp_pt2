@@ -1,5 +1,10 @@
 pipeline {
-    agent any
+    agent {
+        docker {
+            image "mcr.microsoft.com/dotnet/sdk:8.0"
+            args "-v /var/run/docker.sock:/var/run/docker.sock"
+        }
+    }
 
     environment {
         DOCKER_IMG = "ms-cs-docker-test-1"
@@ -33,7 +38,8 @@ pipeline {
             steps {
                 script {
                     echo "TODO Make this run unit tests"
-                    sh "docker run --rm $DOCKER_IMG dotnet test"
+                    sh "docker exec -d $DOCKER_IMG dotnet test"
+                    // sh "docker run --rm $DOCKER_IMG dotnet test"
                 }
             }
         }
