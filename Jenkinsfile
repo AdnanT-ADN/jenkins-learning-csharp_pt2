@@ -67,6 +67,9 @@ pipeline {
                         $DOCKER_IMG \
                         dotnet test /App/src -c Release --logger "trx;LogFileName=/App/src/$TEST_RESULTS_DIR/TestResults.trx"
                     """
+
+                    // Debug: List contents of TestResults directory to confirm output
+                    sh "ls -la $WORKSPACE/$TEST_RESULTS_DIR"
                 }
             }
         }
