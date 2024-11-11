@@ -25,4 +25,4 @@ WORKDIR /App
 COPY --from=build-env /App/publish/ .
 
 # ENTRYPOINT ["dotnet", "DotNet.Docker.dll"]
-ENTRYPOINT [ "dotnet", "AProgram.dll" ]
+# ENTRYPOINT [ "dotnet", "AProgram.dll" ]
