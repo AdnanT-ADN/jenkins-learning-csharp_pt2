@@ -70,6 +70,7 @@ pipeline {
 
                     // Debug: List contents of TestResults directory to confirm output
                     sh "ls -la $WORKSPACE/$TEST_RESULTS_DIR"
+                    sh "cat $WORKSPACE/$TEST_RESULTS_DIR/TestResults.trx"
                 }
             }
         }
