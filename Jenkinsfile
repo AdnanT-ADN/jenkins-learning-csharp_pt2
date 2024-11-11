@@ -79,8 +79,10 @@ pipeline {
                 script {
                     echo "TODO Make this archive the test results in a .trx file to Jenkings"
                 }
+                sh "chmod -R 755 $TEST_RESULTS_DIR"
+
                 archiveArtifacts artifacts: "$TEST_RESULTS_DIR/*.trx", allowEmptyArchive: true
-                junit "$WORKSPACE/$TEST_RESULTS_DIR/*.trx"
+                junit "$TEST_RESULTS_DIR/*.trx"
             }
         }
 
