@@ -1,7 +1,5 @@
 pipeline {
-    agent {
-        any
-    }
+    agent any
 
     environment {
         DOCKER_IMG = "ms-cs-docker-test-1"
