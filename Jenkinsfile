@@ -34,7 +34,15 @@ pipeline {
             steps {
                 script {
                     echo "Retrieving Test Results from Docker Image"
+                    echo "Retrieving Test Results from Docker Image"
+
+                    // Ensure the test results directory exists
                     sh "mkdir -p $TEST_RESULTS_DIR"
+
+                    // Remove existing container if it exists
+                    sh "docker rm -f temp-container || true"
+
+                    // Create a new container and copy test results
                     sh "docker create --name temp-container $DOCKER_IMG"
                     sh "docker cp temp-container:/App/TestResults/TestResults.trx $TEST_RESULTS_DIR"
                     sh "docker rm temp-container"
