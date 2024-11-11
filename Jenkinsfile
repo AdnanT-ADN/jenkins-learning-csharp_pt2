@@ -58,14 +58,14 @@ pipeline {
                 script {
                     echo "Running Unit Tests in Docker"
                     // Create a directory for storing test results
-                    sh "mkdir -p $TEST_RESULTS_DIR"
+                    sh "mkdir -p ./$TEST_RESULTS_DIR"
 
                     // Run dotnet test inside the Docker container
                     sh """
                         docker run --rm \
-                        -v $WORKSPACE/TestResults:/App/src/TestResults \
+                        -v $WORKSPACE/$TEST_RESULTS_DIR:/App/src/$TEST_RESULTS_DIR \
                         $DOCKER_IMG \
-                        dotnet test /App/src -c Release --logger "trx;LogFileName=/App/src/TestResults/TestResults.trx"
+                        dotnet test /App/src -c Release --logger "trx;LogFileName=/App/src/$TEST_RESULTS_DIR/TestResults.trx"
                     """
                 }
             }
