@@ -18,6 +18,13 @@ pipeline {
             }
         }
 
+        stage("Test Docker and GIT") {
+            steps {
+                sh "docker --version"
+                sh "git --version"
+            }
+        }
+
         stage("Build Docker Image") {
             steps {
                 script {
