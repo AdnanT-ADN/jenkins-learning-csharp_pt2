@@ -80,7 +80,7 @@ pipeline {
                 script {
                     echo "TODO Make this archive the test results in a .trx file to Jenkins"
                 }
-                sh "chmod -R 755 $TEST_RESULTS_DIR"
+                sh "chmod -R 755 $WORKSPACE/$TEST_RESULTS_DIR"
 
                 archiveArtifacts artifacts: "$WORKSPACE/$TEST_RESULTS_DIR/*.trx", allowEmptyArchive: false
                 junit testResults: "$WORKSPACE/$TEST_RESULTS_DIR/*.trx", allowEmptyResults: true
