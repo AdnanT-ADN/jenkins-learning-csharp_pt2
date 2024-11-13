@@ -82,7 +82,8 @@ pipeline {
                 }
                 sh "chmod -R 755 $TEST_RESULTS_DIR"
 
-                archiveArtifacts artifacts: "$TEST_RESULTS_DIR/*.trx", allowEmptyArchive: false
+                archiveArtifacts artifacts: "$TEST_RESULTS_DIR/*.trx", allowEmptyArchive: 
+                sh "ls -la"
                 junit testResults: "$TEST_RESULTS_DIR/*.trx", allowEmptyResults: false
             }
         }
