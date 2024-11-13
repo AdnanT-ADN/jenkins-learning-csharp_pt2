@@ -75,6 +75,17 @@ pipeline {
             }
         }
 
+        stage("Convert TRX to JUnit") {
+            steps {
+                script {
+                    sh """
+                    export PATH="\$PATH:\$HOME/.dotnet/tools"
+                    trx2junit $WORKSPACE/$TEST_RESULTS_DIR/TestResults.trx -o $WORKSPACE/$TEST_RESULTS_DIR/JUnitTestResults.xml
+                    """
+                }
+            }
+        }
+
         stage("Archive Test Results") {
             steps {
                 script {
