@@ -14,6 +14,13 @@ pipeline {
             }
         }
 
+        stage("Install trx2junit") {
+            steps {
+                sh "dotnet tool install --global trx2unit"
+                sh "export PATH='$PATH:$HOME/.dotnet/tools'"
+            }
+        }
+
         stage("Test Docker and GIT") {
             steps {
                 sh "docker --version"
