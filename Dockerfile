@@ -11,10 +11,6 @@ WORKDIR /App/src
 # Restore dependencies for the solution
 RUN dotnet restore
 
-# Install trx2junit if using a Dockerfile
-RUN dotnet tool install -g trx2junit
-ENV PATH="${PATH}:/root/.dotnet/tools"
-
 # Build the solution in Release mode
 RUN dotnet build -c Release --no-restore
 

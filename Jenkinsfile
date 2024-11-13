@@ -73,18 +73,7 @@ pipeline {
                     sh "cat $WORKSPACE/$TEST_RESULTS_DIR/TestResults.trx"
                 }
             }
-        }
-
-        stage("Convert TRX to JUnit") {
-            steps {
-                script {
-                    sh """
-                    export PATH="\$PATH:\$HOME/.dotnet/tools"
-                    trx2junit $WORKSPACE/$TEST_RESULTS_DIR/TestResults.trx -o $WORKSPACE/$TEST_RESULTS_DIR/JUnitTestResults.xml
-                    """
-                }
-            }
-        }
+        } 
 
         stage("Archive Test Results") {
             steps {
@@ -94,7 +83,7 @@ pipeline {
                 sh "chmod -R 755 $TEST_RESULTS_DIR"
 
                 archiveArtifacts artifacts: "$TEST_RESULTS_DIR/*.trx", allowEmptyArchive: false
-                junit testResults: "$TEST_RESULTS_DIR/*.trx", allowEmptyResults: true
+                junit testResults: "$TEST_RESULTS_DIR/*.trx", allowEmptyResults: false
             }
         }
 
