@@ -84,7 +84,8 @@ pipeline {
 
                 archiveArtifacts artifacts: "$TEST_RESULTS_DIR/*.trx", allowEmptyArchive: false
                 sh "ls -la ./$TEST_RESULTS_DIR"
-                junit testResults: "./$TEST_RESULTS_DIR/*.trx", allowEmptyResults: false
+                junit testResults: "./$TEST_RESULTS_DIR/TestResults.trx", allowEmptyResults: false
+                // junit testResults: "./$TEST_RESULTS_DIR/*.trx", allowEmptyResults: false
             }
         }
 
