@@ -31,7 +31,6 @@ pipeline {
                 script {
                     echo "Building Docker Image"
                     sh "docker build -t $DOCKER_IMG -f Dockerfile ."
-                    sh "docker ps -a"
                 }
             }
         }
@@ -52,8 +51,9 @@ pipeline {
                 }
                 sh "chmod -R 755 $TEST_RESULTS_DIR"
                 sh "ls -la"
+                sh "ls -la ./$TEST_RESULTS_DIR"
 
-                archiveArtifacts artifacts: "$TEST_RESULTS_DIR", allowEmptyArchive: false
+                archiveArtifacts artifacts: "./$TEST_RESULTS_DIR", allowEmptyArchive: false
                 junit testResults: "./$TEST_RESULTS_DIR/TestResults.trx", allowEmptyResults: false
             }
         }
