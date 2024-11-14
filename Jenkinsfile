@@ -11,10 +11,11 @@ pipeline {
         stage("Checkout") {
             steps {
                 checkout scm
+                sh "ls -la"
             }
         }
 
-        stage("Test Docker and GIT") {
+        stage("Check Versions: Docker, GIT, DOTNET") {
             steps {
                 sh "docker --version"
                 sh "git --version"
