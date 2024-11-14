@@ -18,6 +18,7 @@ pipeline {
             steps {
                 sh "docker --version"
                 sh "git --version"
+                sh "ls -la"
             }
         }
 
@@ -26,6 +27,7 @@ pipeline {
                 script {
                     echo "Building Docker Image"
                     sh "docker build -t $DOCKER_IMG -f Dockerfile ."
+                    sh "ls -la"
                 }
             }
         }
