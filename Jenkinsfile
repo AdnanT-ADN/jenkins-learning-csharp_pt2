@@ -12,7 +12,6 @@ pipeline {
             steps {
                 script {
                     deleteDir()
-                    sh "ls -la"
                 }
                 checkout scm
                 sh "ls -la"
@@ -24,7 +23,6 @@ pipeline {
                 sh "docker --version"
                 sh "git --version"
                 sh "dotnet --version"
-                sh "ls -la"
             }
         }
 
@@ -33,7 +31,7 @@ pipeline {
                 script {
                     echo "Building Docker Image"
                     sh "docker build -t $DOCKER_IMG -f Dockerfile ."
-                    sh "ls -la"
+                    sh "docker ps -a"
                 }
             }
         }
