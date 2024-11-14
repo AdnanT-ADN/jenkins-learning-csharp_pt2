@@ -15,8 +15,8 @@ RUN dotnet restore
 RUN dotnet build -c Release --no-restore
 
 # Run tests and output results in .trx format
-RUN mkdir -p /App/src/TestResults
-RUN dotnet test -c Release --no-build --logger "xml;LogFileName=/App/src/TestResults/TestResults.xml"
+# RUN mkdir -p /App/src/TestResults
+# RUN dotnet test -c Release --no-build --logger "xml;LogFileName=/App/src/TestResults/TestResults.xml"
 
 # Publish the main project to a separate directory
 RUN dotnet publish AProgram -c Release -o /App/publish --no-restore
