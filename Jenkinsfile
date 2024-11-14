@@ -18,6 +18,7 @@ pipeline {
             steps {
                 sh "docker --version"
                 sh "git --version"
+                sh "dotnet --version"
                 sh "ls -la"
             }
         }
@@ -47,8 +48,9 @@ pipeline {
                     echo "TODO Make this archive the test results in a .trx file to Jenkins"
                 }
                 sh "chmod -R 755 $TEST_RESULTS_DIR"
+                sh "ls -la"
 
-                archiveArtifacts artifacts: "$TEST_RESULTS_DIR/", allowEmptyArchive: false
+                archiveArtifacts artifacts: "$TEST_RESULTS_DIR", allowEmptyArchive: false
                 junit testResults: "./$TEST_RESULTS_DIR/TestResults.trx", allowEmptyResults: false
             }
         }
