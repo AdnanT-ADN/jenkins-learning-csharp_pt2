@@ -12,6 +12,7 @@ pipeline {
             steps {
                 script {
                     deleteDir()
+                    sh "ls -la"
                 }
                 checkout scm
                 sh "ls -la"
