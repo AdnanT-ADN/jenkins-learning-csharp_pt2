@@ -35,6 +35,7 @@ pipeline {
         stage("Run Unit Tests") {
             steps {
                 script {
+                    sh "mkdir -p $WORKSPACE/$TEST_RESULTS_DIR"
                     sh "ls -la"
                 }
             }
