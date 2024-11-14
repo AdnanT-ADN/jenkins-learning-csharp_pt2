@@ -10,6 +10,9 @@ pipeline {
 
         stage("Checkout") {
             steps {
+                script {
+                    deleteDir()
+                }
                 checkout scm
                 sh "ls -la"
             }
