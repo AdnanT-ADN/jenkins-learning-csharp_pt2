@@ -2,7 +2,7 @@ pipeline {
     agent any
 
     environment {
-        DOCKER_IMG = "docker-csharp-testing"
+        DOCKER_IMG = "ms-cs-docker-test-1"
         TEST_RESULTS_DIR = "TestResults"
     }
 
@@ -18,10 +18,11 @@ pipeline {
             }
         }
 
-        stage("Check Versions: Docker, GIT") {
+        stage("Check Versions: Docker, GIT, DOTNET") {
             steps {
                 sh "docker --version"
                 sh "git --version"
+                sh "dotnet --version"
             }
         }
 
@@ -29,7 +30,7 @@ pipeline {
             steps {
                 script {
                     echo "Building Docker Image"
-                    sh "docker build -t $DOCKER_IMG -f DockerImages/Testing/Dockerfile ."
+                    sh "docker build -t $DOCKER_IMG -f Dockerfile ."
                 }
             }
         }
