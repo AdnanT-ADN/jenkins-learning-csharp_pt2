@@ -29,13 +29,13 @@ pipeline {
             steps {
                 script {
                     echo "Building Docker Image"
+                    sh "mkdir -p ${TEST_RESULTS_DIR}"
                     sh "docker build -t ${DOCKER_IMG} -f DockerImages/Testing/Dockerfile ."
                     // sh "docker run --name dotnet-test-con ${DOCKER_IMG} || true"
                     sh "docker images"
                     sh "docker run --rm -v ${pwd}/${TEST_RESULTS_DIR}:/output --name dotnet-test-con ${DOCKER_IMG}"
                     // Copy test results from the container to the workspace
                     sh "docker ps -a"
-                    sh "mkdir -p ${TEST_RESULTS_DIR}"
                     // sh "docker exec dotnet-test-con ls -la /output"
                     // sh "docker cp ${DOCKER_IMG}:/output/test-results.trx ${TEST_RESULTS_DIR}/test-results.trx"sh "ls -la"
                 }
@@ -45,7 +45,7 @@ pipeline {
         stage("Run Unit Tests") {
             steps {
                 script {
-                    sh "mkdir -p $WORKSPACE/$TEST_RESULTS_DIR"
+                    // sh "mkdir -p $WORKSPACE/$TEST_RESULTS_DIR"
                     sh "ls -la"
                 }
             }
