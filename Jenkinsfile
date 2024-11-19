@@ -51,6 +51,7 @@ pipeline {
                 sh "chmod -R 755 $TEST_RESULTS_DIR"
                 sh "ls -la"
                 sh "ls -la ./$TEST_RESULTS_DIR"
+                sh "ls -la ./src"
 
                 archiveArtifacts artifacts: "./$TEST_RESULTS_DIR", allowEmptyArchive: false
                 junit testResults: "./$TEST_RESULTS_DIR/TestResults.trx", allowEmptyResults: false
