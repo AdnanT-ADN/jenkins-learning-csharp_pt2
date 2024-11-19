@@ -56,7 +56,7 @@ pipeline {
             sh "ls -la ${TEST_RESULTS_DIR}"
             
             // Archive the test results (.trx file) in Jenkins
-            archiveArtifacts artifacts: "${TEST_RESULTS_DIR}/*.trx", allowEmptyArchive: false
+            archiveArtifacts artifacts: "${TEST_RESULTS_DIR}", allowEmptyArchive: false
             
             // Publish the test results in Jenkins
             junit testResults: "${TEST_RESULTS_DIR}/*.trx", allowEmptyResults: false
