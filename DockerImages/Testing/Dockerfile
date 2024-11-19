@@ -17,6 +17,7 @@ RUN dotnet build -c Release --no-restore
 
 # Test Solution
 RUN mkdir /output && chmod 777 /output
+RUN mkdir output
 
 ## Run tests and generate a test results report in JUnit XML format
 RUN dotnet test --logger "trx;LogFileName=/output/test-results.trx" 
