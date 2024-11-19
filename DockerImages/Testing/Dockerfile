@@ -29,4 +29,4 @@ RUN dotnet test --logger "trx;LogFileName=/output/test-results.trx" \
 # WORKDIR /App
 
 # COPY --from=build-env /App .
-ENTRYPOINT [ "dotnet", "AProgram.dll" ]
+# ENTRYPOINT [ "dotnet", "AProgram.dll" ]
