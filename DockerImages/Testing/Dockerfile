@@ -16,13 +16,13 @@ RUN dotnet restore
 RUN dotnet build -c Release --no-restore
 
 # Test Solution
-RUN mkdir /output && chmod 777 /output
+RUN mkdir output && chmod 777 /output
 
 ## Run tests and generate a test results report in JUnit XML format
-RUN dotnet test --logger "trx;LogFileName=/output/test-results.trx" 
+RUN dotnet test --logger "trx;LogFileName=${pwd}/output/test-results.trx" 
 
 RUN ls -a
-RUN ls / -a
+# RUN ls / -a
 
 # \
 #     && dotnet tool install -g trx2junit \
