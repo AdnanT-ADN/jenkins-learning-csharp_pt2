@@ -32,7 +32,7 @@ pipeline {
                     sh "docker build -t $DOCKER_IMG -f DockerImages/Testing/Dockerfile ."
                     // Copy test results from the container to the workspace
                     sh "mkdir -p ${TEST_RESULTS_DIR}"
-                    sh "docker exec docker-csharp-testing ls -la /output"
+                    sh "docker exec ${DOCKER_IMG} ls -la /output"
                     sh "docker cp ${DOCKER_IMG}:/output/test-results.trx ${TEST_RESULTS_DIR}/test-results.trx"sh "ls -la"
                 }
             }
