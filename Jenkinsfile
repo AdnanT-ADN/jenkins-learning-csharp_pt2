@@ -31,7 +31,7 @@ pipeline {
                     echo "Building Docker Image"
                     sh "mkdir -p ${TEST_RESULTS_DIR}"
                     // sh "mkdir -p ${pwd}/${TEST_RESULTS_DIR}"
-                    sh "docker build -t ${DOCKER_IMG} -f DockerImages/Testing/Dockerfile ."
+                    sh "docker build --no-cache -t ${DOCKER_IMG} -f DockerImages/Testing/Dockerfile ."
                     // sh "docker run --name dotnet-test-con ${DOCKER_IMG} || true"
                     sh "docker images"
                     sh "docker run --rm -v ${pwd}/${TEST_RESULTS_DIR}:/output --name dotnet-test-con ${DOCKER_IMG}"
