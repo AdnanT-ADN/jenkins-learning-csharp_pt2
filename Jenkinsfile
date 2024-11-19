@@ -30,6 +30,7 @@ pipeline {
                 script {
                     echo "Building Docker Image"
                     sh "docker build -t $DOCKER_IMG -f DockerImages/Testing/Dockerfile ."
+                    sh "ls -la"
                 }
             }
         }
@@ -53,6 +54,7 @@ pipeline {
             sh "chmod -R 755 ${TEST_RESULTS_DIR}"
             
             // Debug: List the files in the output directory
+            sh "ls -la"
             sh "ls -la ${TEST_RESULTS_DIR}"
             
             // Archive the test results (.trx file) in Jenkins
