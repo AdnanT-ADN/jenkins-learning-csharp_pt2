@@ -71,7 +71,7 @@ pipeline {
             archiveArtifacts artifacts: "${TEST_RESULTS_DIR}/output/*trx", allowEmptyArchive: false
             
             // Publish the test results in Jenkins
-            junit testResults: "/${TEST_RESULTS_DIR}/output/*.trx", allowEmptyResults: false
+            junit testResults: "${TEST_RESULTS_DIR}/output/*.trx", allowEmptyResults: false
         }
     }
 }
