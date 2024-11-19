@@ -29,7 +29,7 @@ pipeline {
             steps {
                 script {
                     echo "Building Docker Image"
-                    sh "docker build -t $DOCKER_IMG -f DockerImages/Testing/Dockerfile ."
+                    sh "docker build -t ${DOCKER_IMG} -f DockerImages/Testing/Dockerfile ."
                     // Copy test results from the container to the workspace
                     sh "mkdir -p ${TEST_RESULTS_DIR}"
                     sh "docker exec ${DOCKER_IMG} ls -la /output"
