@@ -31,4 +31,3 @@ RUN dotnet test --logger "trx;LogFileName=/output/test-results.trx" \
 
 # COPY --from=build-env /App .
 # ENTRYPOINT [ "dotnet", "AProgram.dll" ]
-CMD [ "tail", "-f", "/dev/null" ]
