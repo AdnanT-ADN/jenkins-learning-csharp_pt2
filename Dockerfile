@@ -21,7 +21,6 @@ RUN mkdir output && chmod 777 output
 ## Run tests and generate a test results report in JUnit XML format
 RUN dotnet test --logger "trx;LogFileName=/output/test-results.trx"
 
-RUN cp /output/*.trx ${pwd}/output
 
 RUN pwd
 RUN ls -a
