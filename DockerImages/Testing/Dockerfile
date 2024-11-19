@@ -23,6 +23,7 @@ RUN dotnet test --logger "trx;LogFileName=./output/test-results.trx"
 
 RUN ls -a
 RUN ls ./output -a
+RUN pwd
 # \
 #     && dotnet tool install -g trx2junit \
 #     && export PATH="$PATH:/root/.dotnet/tools" \
