@@ -19,10 +19,11 @@ RUN dotnet build -c Release --no-restore
 RUN mkdir -p /output
 
 ## Run tests and generate a test results report in JUnit XML format
-RUN dotnet test --logger "trx;LogFileName=/output/test-results.trx" \
-    && dotnet tool install -g trx2junit \
-    && export PATH="$PATH:/root/.dotnet/tools" \
-    && trx2junit /output/test-results.trx
+RUN dotnet test --logger "trx;LogFileName=/output/test-results.trx" 
+# \
+#     && dotnet tool install -g trx2junit \
+#     && export PATH="$PATH:/root/.dotnet/tools" \
+    # && trx2junit /output/test-results.trx
 
 # Prod Build
 
