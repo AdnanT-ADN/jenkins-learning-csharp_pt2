@@ -36,8 +36,8 @@ pipeline {
                     // Copy test results from the container to the workspace
                     sh "docker ps -a"
                     sh "mkdir -p ${TEST_RESULTS_DIR}"
-                    sh "docker exec dotnet-test-con ls -la /output"
-                    sh "docker cp ${DOCKER_IMG}:/output/test-results.trx ${TEST_RESULTS_DIR}/test-results.trx"sh "ls -la"
+                    // sh "docker exec dotnet-test-con ls -la /output"
+                    // sh "docker cp ${DOCKER_IMG}:/output/test-results.trx ${TEST_RESULTS_DIR}/test-results.trx"sh "ls -la"
                 }
             }
         }
