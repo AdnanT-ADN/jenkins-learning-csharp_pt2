@@ -21,7 +21,7 @@ RUN mkdir output
 
 ## Run tests and generate a test results report in JUnit XML format
 RUN dotnet test --logger "trx;LogFileName=/output/test-results.trx" 
-RUN cp ~/output/*.trx output
+RUN cp /output/*.trx .output
 
 RUN ls /output -la
 
