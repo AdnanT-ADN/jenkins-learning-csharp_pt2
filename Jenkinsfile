@@ -30,6 +30,7 @@ pipeline {
                 script {
                     echo "Building Docker Image"
                     sh "docker build -t ${DOCKER_IMG} -f DockerImages/Testing/Dockerfile ."
+                    sh "docker images"
                     sh "docker run --name ${DOCKER_IMG} dotnet-test-image || true"
                     sh "docker ps -a"
                     // Copy test results from the container to the workspace
