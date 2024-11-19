@@ -16,6 +16,7 @@ RUN dotnet restore
 RUN dotnet build -c Release --no-restore
 
 # Test Solution
+RUN mkdir -p /output
 
 ## Run tests and generate a test results report in JUnit XML format
 RUN dotnet test --logger "trx;LogFileName=/output/test-results.trx" \
@@ -30,3 +31,4 @@ RUN dotnet test --logger "trx;LogFileName=/output/test-results.trx" \
 
 # COPY --from=build-env /App .
 # ENTRYPOINT [ "dotnet", "AProgram.dll" ]
+CMD [ "tail", "-f", "/dev/null" ]
