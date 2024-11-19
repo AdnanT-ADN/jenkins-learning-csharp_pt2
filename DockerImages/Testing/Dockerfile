@@ -22,7 +22,7 @@ RUN mkdir output && chmod 777 output
 RUN dotnet test --logger "trx;LogFileName=${pwd}/output/test-results.trx" 
 
 RUN ls -a
-# RUN ls / -a
+RUN ls output -a
 
 # \
 #     && dotnet tool install -g trx2junit \
