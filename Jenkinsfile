@@ -60,7 +60,7 @@ pipeline {
                     // Define the output directory where test results are generated
                     
                     // Ensure directory exists and set proper permissions
-                    sh "mkdir -p ${TEST_RESULTS_DIR}"
+                    sh "mkdir -p ${TEST_RESULTS_DIR}/output"
                     sh "chmod -R 755 ${TEST_RESULTS_DIR}"
                     
                     // Debug: List the files in the output directory
@@ -73,7 +73,7 @@ pipeline {
                     sh "cat ${WORKSPACE}/${TEST_RESULTS_DIR}/output/test-results.trx"
                     
                     // Publish the test results in Jenkins
-                    junit testResults: "${WORKSPACE}/${TEST_RESULTS_DIR}/output/*.trx", allowEmptyResults: false
+                    junit testResults: "${TEST_RESULTS_DIR}/output/*.trx", allowEmptyResults: false
                 }
             }
         }
