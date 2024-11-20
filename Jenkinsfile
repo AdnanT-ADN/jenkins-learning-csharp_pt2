@@ -66,7 +66,7 @@ pipeline {
                     // Debug: List the files in the output directory
                     sh "ls -la"
                     sh "ls -la ${TEST_RESULTS_DIR}/output"
-                    sh "ls -la ${TEST_RESULTS_DIR}/output/tset-results.xml"
+                    sh "ls -la ${TEST_RESULTS_DIR}/output/test-results.xml"
                     
                     
                     // Archive the test results (.trx file) in Jenkins
