@@ -30,7 +30,7 @@ RUN dotnet tool install -g trx2junit
 ENV PATH="$PATH:/root/.dotnet/tools"
 
 # Convert the .trx file to JUnit-compatible XML
-RUN trx2junit /output/test-results.trx --output /output/test-results.xml
+RUN trx2junit /output --output /output/test-results.xml
 
 
 RUN ls /output -la
