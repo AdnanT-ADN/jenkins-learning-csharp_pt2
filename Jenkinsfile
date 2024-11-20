@@ -75,7 +75,7 @@ pipeline {
                     sh "cat ${WORKSPACE}/${TEST_RESULTS_DIR}/output/test-results.xml"
                     
                     // Publish the test results in Jenkins
-                    junit testResults: "${WORKSPACE}/${TEST_RESULTS_DIR}/output/*.xml", allowEmptyResults: false
+                    junit testResults: "${WORKSPACE}/${TEST_RESULTS_DIR}/output/test-results.xml", allowEmptyResults: false
                 }
             }
         }
