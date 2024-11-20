@@ -70,10 +70,10 @@ pipeline {
                     // Archive the test results (.trx file) in Jenkins
                     archiveArtifacts artifacts: "${TEST_RESULTS_DIR}/output/*trx", allowEmptyArchive: false
                     sh "ls -la ${WORKSPACE}/${TEST_RESULTS_DIR}/output"
-                    sh "cat ${WORKSPACE}/${TEST_RESULTS_DIR}/output/test-results.xmls"
+                    sh "cat ${WORKSPACE}/${TEST_RESULTS_DIR}/output/test-results.xml"
                     
                     // Publish the test results in Jenkins
-                    junit testResults: "${TEST_RESULTS_DIR}/output/*.xml", allowEmptyResults: false
+                    junit testResults: "${WORKSPACE}/${TEST_RESULTS_DIR}/output/*.xml", allowEmptyResults: false
                 }
             }
         }
