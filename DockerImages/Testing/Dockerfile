@@ -23,6 +23,16 @@ RUN mkdir output
 RUN dotnet test --logger "trx;LogFileName=/output/test-results.trx" 
 RUN cp /output/*.trx ./output
 
+# Install trx2junit
+RUN dotnet tool install -g trx2junit
+
+#  add .NET tools directory to PATH
+ENV PATH="$PATH:/root/.dotnet/tools"
+
+# Convert the .trx file to JUnit-compatible XML
+RUN trx2junit /output/test-results.trx --output /output/test-results.xml
+RUN cp /output/*xml ./output
+
 RUN ls /output -la
 
 RUN pwd
