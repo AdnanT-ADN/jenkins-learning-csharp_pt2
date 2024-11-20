@@ -31,7 +31,7 @@ ENV PATH="$PATH:/root/.dotnet/tools"
 
 # Convert the .trx file to JUnit-compatible XML
 RUN trx2junit /output/test-results.trx --output /output/test-results.xml
-RUN cp /output/*xml ./output
+
 
 RUN ls /output -la
 
