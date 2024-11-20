@@ -55,46 +55,45 @@ pipeline {
         } 
 
         stage("Archive Test Results") {
-    steps {
-        script {
-            // Define the output directory where test results are generated
-            
-            // Ensure directory exists and set proper permissions
-            sh "mkdir -p ${TEST_RESULTS_DIR}"
-            sh "chmod -R 755 ${TEST_RESULTS_DIR}"
-            
-            // Debug: List the files in the output directory
-            sh "ls -la"
-            sh "ls -la ${TEST_RESULTS_DIR}/output"
-            
-            // Archive the test results (.trx file) in Jenkins
-            archiveArtifacts artifacts: "${TEST_RESULTS_DIR}/output/*trx", allowEmptyArchive: false
-            sh "ls -la ${WORKSPACE}/${TEST_RESULTS_DIR}"
-            
-            // Publish the test results in Jenkins
-            junit testResults: "${TEST_RESULTS_DIR}/output/*.trx", allowEmptyResults: false
-        }
-    }
-}
-
-        // stage("Archive Test Results") {
-        //     steps {
-        //         script {
-        //             echo "TODO Make this archive the test results in a .trx file to Jenkins"
-        //         }
-        //         sh "chmod -R 755 $TEST_RESULTS_DIR"
-        //         sh "ls -la"
-        //         sh "ls -la ./$TEST_RESULTS_DIR"
-
-        //         archiveArtifacts artifacts: "./$TEST_RESULTS_DIR", allowEmptyArchive: false
-        //         junit testResults: "./$TEST_RESULTS_DIR/TestResults.trx", allowEmptyResults: false
-        //     }
-        // }
-
-        stage("Clean Up") {
             steps {
                 script {
-                    echo "Cleaning Docker Images"
+                    // Define the output directory where test results are generated
+                    
+                    // Ensure directory exists and set proper permissions
+                    sh "mkdir -p ${TEST_RESULTS_DIR}"
+                    sh "chmod -R 755 ${TEST_RESULTS_DIR}"
+                    
+                    // Debug: List the files in the output directory
+                    sh "ls -la"
+                    sh "ls -la ${TEST_RESULTS_DIR}/output"
+                    
+                    // Archive the test results (.trx file) in Jenkins
+                    archiveArtifacts artifacts: "${TEST_RESULTS_DIR}/output/*trx", allowEmptyArchive: false
+                    sh "ls -la ${WORKSPACE}/${TEST_RESULTS_DIR}"
+                    
+                    // Publish the test results in Jenkins
+                    junit testResults: "${TEST_RESULTS_DIR}/output/*.trx", allowEmptyResults: false
+                }
+            }
+        }
+         // stage("Archive Test Results") {
+            //     steps {
+            //         script {
+            //             echo "TODO Make this archive the test results in a .trx file to Jenkins"
+            //         }
+            //         sh "chmod -R 755 $TEST_RESULTS_DIR"
+            //         sh "ls -la"
+            //         sh "ls -la ./$TEST_RESULTS_DIR"
+
+            //         archiveArtifacts artifacts: "./$TEST_RESULTS_DIR", allowEmptyArchive: false
+            //         junit testResults: "./$TEST_RESULTS_DIR/TestResults.trx", allowEmptyResults: false
+            //     }
+            // }
+
+            stage("Clean Up") {
+                steps {
+                    script {
+                        echo "Cleaning Docker Images"
                     sh "docker rmi $DOCKER_IMG"
                 }
             }
