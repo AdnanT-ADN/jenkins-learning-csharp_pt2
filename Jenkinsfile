@@ -117,7 +117,8 @@ pipeline {
     //         }
     //     }
     // }
-
+    }
+    
     post {
         always {
             echo "Cleaning Docker Containers"
