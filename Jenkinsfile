@@ -4,7 +4,8 @@ pipeline {
     environment {
         DOCKER_IMG = "docker-csharp-testing"
         TEST_RESULTS_DIR = "output"
-        // SONAR_TOKEN = credentials("sqp_b48d54a83ceb6984c4619d018d63571969445a89")
+        SONAR_HOST_URL = "http://localhost:9000"
+        SONAR_TOKEN = credentials("sqp_b48d54a83ceb6984c4619d018d63571969445a89")
     }
 
     stages {
@@ -92,15 +93,22 @@ pipeline {
 
         stage("SonarQube Analysis") {
             steps {
-                withSonarQubeEnv("SonarQube Cloud") {
-                    sh '''
-                    ./gradlew sonarqube \
-                        -Dsonar.projectKey=TestProject \
-                        -Dsonar.organization=AdnanT-ADN \
-                        -Dsonar.host.url=https://sonarcloud.io \
-                        -Dsonar.login=$SONAR_TOKEN
-                    '''
-                }
+                '''
+                # Pull the .NET 8 SDK image if not already available
+                docker pull mcr.microsoft.com/dotnet/sdk:8.0
+
+                # Run SonarScanner using the .NET 8 SDK Docker container
+                docker run --rm -v $(pwd):/app -w /app mcr.microsoft.com/dotnet/sdk:8.0 sh -c "
+                    dotnet tool install --global dotnet-sonarscanner --version 5.12.0 &&
+                    export PATH=\\\"\\$PATH:/root/.dotnet/tools\\\" &&
+                    dotnet sonarscanner begin \
+                        /k:'your-project-key' \
+                        /d:sonar.host.url=$SONAR_HOST_URL \
+                        /d:sonar.login=$SONAR_TOKEN &&
+                    dotnet build &&
+                    dotnet sonarscanner end /d:sonar.login=$SONAR_TOKEN
+                "
+                '''
             }
         }
 
