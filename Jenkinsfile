@@ -4,7 +4,7 @@ pipeline {
     environment {
         DOCKER_IMG = "docker-csharp-testing"
         TEST_RESULTS_DIR = "output"
-        SONAR_HOST_URL = "http://localhost:9000"
+        SONAR_HOST_URL = "http://192.168.1.159:9000"
         SONAR_TOKEN = credentials("sonar-token")
     }
 
