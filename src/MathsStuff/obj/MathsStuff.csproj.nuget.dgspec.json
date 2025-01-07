@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "/home/adn/Documents/Programming/Learning/Docker/c_sharp_jenkins_pt4/jenkins-learning-csharp_pt2/src/MathsStuff/MathsStuff.csproj": {}
+    "/home/adn/Documents/Programming/Learning/Docker/TestingSuitV2/repo/jenkins-learning-csharp_pt2/src/MathsStuff/MathsStuff.csproj": {}
   },
   "projects": {
-    "/home/adn/Documents/Programming/Learning/Docker/c_sharp_jenkins_pt4/jenkins-learning-csharp_pt2/src/MathsStuff/MathsStuff.csproj": {
+    "/home/adn/Documents/Programming/Learning/Docker/TestingSuitV2/repo/jenkins-learning-csharp_pt2/src/MathsStuff/MathsStuff.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/home/adn/Documents/Programming/Learning/Docker/c_sharp_jenkins_pt4/jenkins-learning-csharp_pt2/src/MathsStuff/MathsStuff.csproj",
+        "projectUniqueName": "/home/adn/Documents/Programming/Learning/Docker/TestingSuitV2/repo/jenkins-learning-csharp_pt2/src/MathsStuff/MathsStuff.csproj",
         "projectName": "MathsStuff",
-        "projectPath": "/home/adn/Documents/Programming/Learning/Docker/c_sharp_jenkins_pt4/jenkins-learning-csharp_pt2/src/MathsStuff/MathsStuff.csproj",
+        "projectPath": "/home/adn/Documents/Programming/Learning/Docker/TestingSuitV2/repo/jenkins-learning-csharp_pt2/src/MathsStuff/MathsStuff.csproj",
         "packagesPath": "/home/adn/.nuget/packages/",
-        "outputPath": "/home/adn/Documents/Programming/Learning/Docker/c_sharp_jenkins_pt4/jenkins-learning-csharp_pt2/src/MathsStuff/obj/",
+        "outputPath": "/home/adn/Documents/Programming/Learning/Docker/TestingSuitV2/repo/jenkins-learning-csharp_pt2/src/MathsStuff/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "/home/adn/.nuget/NuGet/NuGet.Config"

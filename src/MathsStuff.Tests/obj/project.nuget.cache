@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "hNlfTzTVps8=",
+  "dgSpecHash": "FAFXCPK6STY=",
   "success": true,
-  "projectFilePath": "/home/adn/Documents/Programming/Learning/Docker/c_sharp_jenkins_pt4/jenkins-learning-csharp_pt2/src/MathsStuff.Tests/MathsStuff.Tests.csproj",
+  "projectFilePath": "/home/adn/Documents/Programming/Learning/Docker/TestingSuitV2/repo/jenkins-learning-csharp_pt2/src/MathsStuff.Tests/MathsStuff.Tests.csproj",
   "expectedPackageFiles": [
     "/home/adn/.nuget/packages/coverlet.collector/6.0.0/coverlet.collector.6.0.0.nupkg.sha512",
     "/home/adn/.nuget/packages/microsoft.codecoverage/17.8.0/microsoft.codecoverage.17.8.0.nupkg.sha512",

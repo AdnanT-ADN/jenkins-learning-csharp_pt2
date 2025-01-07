@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "etEiOVrp90A=",
+  "dgSpecHash": "LJJaD33tKQ8=",
   "success": true,
-  "projectFilePath": "/home/adn/Documents/Programming/Learning/Docker/c_sharp_jenkins_pt4/jenkins-learning-csharp_pt2/src/MathsStuff/MathsStuff.csproj",
+  "projectFilePath": "/home/adn/Documents/Programming/Learning/Docker/TestingSuitV2/repo/jenkins-learning-csharp_pt2/src/MathsStuff/MathsStuff.csproj",
   "expectedPackageFiles": [],
   "logs": []
 }

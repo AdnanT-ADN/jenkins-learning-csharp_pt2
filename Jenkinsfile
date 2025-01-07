@@ -4,6 +4,7 @@ pipeline {
     environment {
         DOCKER_IMG = "docker-csharp-testing"
         TEST_RESULTS_DIR = "output"
+        SONAR_TOKEN = credentials("sqp_b48d54a83ceb6984c4619d018d63571969445a89")
     }
 
     stages {
@@ -80,11 +81,38 @@ pipeline {
             }
         }
 
-            stage("Clean Up") {
-                steps {
-                    script {
-                        echo "Cleaning Docker Images"
+        stage("Clean Up") {
+            steps {
+                script {
+                    echo "Cleaning Docker Images"
                     sh "docker rmi $DOCKER_IMG"
+                }
+            }
+        }
+
+        stage("SonarQube Analysis") {
+            steps {
+                withSonarQubeEnv("SonarQube Cloud") {
+                    sh '''
+                    ./gradlew sonarqube \
+                        -Dsonar.projectKey=TestProject \
+                        -Dsonar.organization=AdnanT-ADN \
+                        -Dsonar.host.url=https://sonarcloud.io \
+                        -Dsonar.login=$SONAR_TOKEN
+                    '''
+                }
+            }
+        }
+
+        stage('Quality Gate') {
+            steps {
+                script {
+                    timeout(time: 1, unit: 'MINUTES') {
+                        def qg = waitForQualityGate()
+                        if (qg.status != 'OK') {
+                            error "Pipeline aborted due to quality gate failure: ${qg.status}"
+                        }
+                    }
                 }
             }
         }
