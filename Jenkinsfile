@@ -93,7 +93,7 @@ pipeline {
 
         stage("SonarQube Analysis") {
             steps {
-                '''
+                sh '''
                 # Pull the .NET 8 SDK image if not already available
                 docker pull mcr.microsoft.com/dotnet/sdk:8.0
 
