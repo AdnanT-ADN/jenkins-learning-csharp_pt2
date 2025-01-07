@@ -1,0 +1,10 @@
+/home/adn/Documents/Programming/Learning/Docker/c_sharp_jenkins_pt4/jenkins-learning-csharp_pt2/src/MathsStuff/bin/Debug/net8.0/MathsStuff.deps.json
+/home/adn/Documents/Programming/Learning/Docker/c_sharp_jenkins_pt4/jenkins-learning-csharp_pt2/src/MathsStuff/bin/Debug/net8.0/MathsStuff.dll
+/home/adn/Documents/Programming/Learning/Docker/c_sharp_jenkins_pt4/jenkins-learning-csharp_pt2/src/MathsStuff/bin/Debug/net8.0/MathsStuff.pdb
+/home/adn/Documents/Programming/Learning/Docker/c_sharp_jenkins_pt4/jenkins-learning-csharp_pt2/src/MathsStuff/obj/Debug/net8.0/MathsStuff.GeneratedMSBuildEditorConfig.editorconfig
+/home/adn/Documents/Programming/Learning/Docker/c_sharp_jenkins_pt4/jenkins-learning-csharp_pt2/src/MathsStuff/obj/Debug/net8.0/MathsStuff.csproj.CoreCompileInputs.cache
+/home/adn/Documents/Programming/Learning/Docker/c_sharp_jenkins_pt4/jenkins-learning-csharp_pt2/src/MathsStuff/obj/Debug/net8.0/MathsStuff.sourcelink.json
+/home/adn/Documents/Programming/Learning/Docker/c_sharp_jenkins_pt4/jenkins-learning-csharp_pt2/src/MathsStuff/obj/Debug/net8.0/MathsStuff.dll
+/home/adn/Documents/Programming/Learning/Docker/c_sharp_jenkins_pt4/jenkins-learning-csharp_pt2/src/MathsStuff/obj/Debug/net8.0/refint/MathsStuff.dll
+/home/adn/Documents/Programming/Learning/Docker/c_sharp_jenkins_pt4/jenkins-learning-csharp_pt2/src/MathsStuff/obj/Debug/net8.0/MathsStuff.pdb
+/home/adn/Documents/Programming/Learning/Docker/c_sharp_jenkins_pt4/jenkins-learning-csharp_pt2/src/MathsStuff/obj/Debug/net8.0/ref/MathsStuff.dll
