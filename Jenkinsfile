@@ -91,26 +91,26 @@ pipeline {
             }
         }
 
-        // stage("SonarQube Analysis") {
-        //     steps {
-        //         sh '''
-        //         # Pull the .NET 8 SDK image if not already available
-        //         docker pull mcr.microsoft.com/dotnet/sdk:8.0
+        stage("SonarQube Analysis") {
+            steps {
+                sh '''
+                # Pull the .NET 8 SDK image if not already available
+                docker pull mcr.microsoft.com/dotnet/sdk:8.0
 
-        //         # Run SonarScanner using the .NET 8 SDK Docker container
-        //         docker run --rm -v $(pwd):/app -w /app mcr.microsoft.com/dotnet/sdk:8.0 sh -c "
-        //             dotnet tool install --global dotnet-sonarscanner --version 5.12.0 &&
-        //             export PATH=\\\"\\$PATH:/root/.dotnet/tools\\\" &&
-        //             dotnet sonarscanner begin \
-        //                 /k:'your-project-key' \
-        //                 /d:sonar.host.url=$SONAR_HOST_URL \
-        //                 /d:sonar.login=$SONAR_TOKEN &&
-        //             dotnet build &&
-        //             dotnet sonarscanner end /d:sonar.login=$SONAR_TOKEN
-        //         "
-        //         '''
-        //     }
-        // }
+                # Run SonarScanner using the .NET 8 SDK Docker container
+                docker run --rm -v $(pwd):/app -w /app mcr.microsoft.com/dotnet/sdk:8.0 sh -c "
+                    dotnet tool install --global dotnet-sonarscanner --version 5.12.0 &&
+                    export PATH=\\\"\\$PATH:/root/.dotnet/tools\\\" &&
+                    dotnet sonarscanner begin \
+                        /k:'your-project-key' \
+                        /d:sonar.host.url=$SONAR_HOST_URL \
+                        /d:sonar.login=$SONAR_TOKEN &&
+                    dotnet build &&
+                    dotnet sonarscanner end /d:sonar.login=$SONAR_TOKEN
+                "
+                '''
+            }
+        }
     
     }
 
