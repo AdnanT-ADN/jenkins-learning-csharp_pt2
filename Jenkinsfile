@@ -90,35 +90,34 @@ pipeline {
             }
         }
 
-    //     stage("SonarQube Analysis") {
-    //         steps {
-    //             withSonarQubeEnv("SonarQube Cloud") {
-    //                 sh '''
-    //                 ./gradlew sonarqube \
-    //                     -Dsonar.projectKey=TestProject \
-    //                     -Dsonar.organization=AdnanT-ADN \
-    //                     -Dsonar.host.url=https://sonarcloud.io \
-    //                     -Dsonar.login=$SONAR_TOKEN
-    //                 '''
-    //             }
-    //         }
-    //     }
+        stage("SonarQube Analysis") {
+            steps {
+                withSonarQubeEnv("SonarQube Cloud") {
+                    sh '''
+                    ./gradlew sonarqube \
+                        -Dsonar.projectKey=TestProject \
+                        -Dsonar.organization=AdnanT-ADN \
+                        -Dsonar.host.url=https://sonarcloud.io \
+                        -Dsonar.login=$SONAR_TOKEN
+                    '''
+                }
+            }
+        }
 
-    //     stage('Quality Gate') {
-    //         steps {
-    //             script {
-    //                 timeout(time: 1, unit: 'MINUTES') {
-    //                     def qg = waitForQualityGate()
-    //                     if (qg.status != 'OK') {
-    //                         error "Pipeline aborted due to quality gate failure: ${qg.status}"
-    //                     }
-    //                 }
-    //             }
-    //         }
-    //     }
-    // }
+        stage('Quality Gate') {
+            steps {
+                script {
+                    timeout(time: 1, unit: 'MINUTES') {
+                        def qg = waitForQualityGate()
+                        if (qg.status != 'OK') {
+                            error "Pipeline aborted due to quality gate failure: ${qg.status}"
+                        }
+                    }
+                }
+            }
+        }
     }
-    
+
     post {
         always {
             echo "Cleaning Docker Containers"
