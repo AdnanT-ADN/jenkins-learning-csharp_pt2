@@ -1,0 +1,135 @@
+pipeline {
+    agent any
+
+    environment {
+        DOCKER_IMG = "docker-csharp-testing"
+        TEST_RESULTS_DIR = "output"
+        // SONAR_TOKEN = credentials("sqp_b48d54a83ceb6984c4619d018d63571969445a89")
+    }
+
+    stages {
+
+        stage("Checkout") {
+            steps {
+                script {
+                    deleteDir()
+                }
+                checkout scm
+                sh "ls -la"
+            }
+        }
+
+        stage("Check Versions: Docker, GIT") {
+            steps {
+                sh "docker --version"
+                sh "git --version"
+            }
+        }
+
+        stage("Build Docker Image") {
+            steps {
+                script {
+                    echo "Building Docker Image"
+                    sh "mkdir -p ${TEST_RESULTS_DIR}"
+                    // sh "mkdir -p ${pwd}/${TEST_RESULTS_DIR}"
+                    sh "docker build --no-cache -t ${DOCKER_IMG} -f DockerImages/Testing/Dockerfile ."
+                    // sh "docker run --name dotnet-test-con ${DOCKER_IMG} || true"
+                    sh "docker images"
+                    sh "docker run -v ${pwd}/${TEST_RESULTS_DIR} --name dotnet-test-con ${DOCKER_IMG}"
+                    // Copy test results from the container to the workspace
+                    sh "docker ps -a"
+                    sh "docker cp dotnet-test-con:/output ./output"
+                    sh "docker rm dotnet-test-con"
+                    // sh "docker exec dotnet-test-con ls -la /output"
+                    // sh "docker cp ${DOCKER_IMG}:/output/test-results.trx ${TEST_RESULTS_DIR}/test-results.trx"sh "ls -la"
+                }
+            }
+        }
+
+        stage("Run Unit Tests") {
+            steps {
+                script {
+                    // sh "mkdir -p $WORKSPACE/$TEST_RESULTS_DIR"
+                    sh "ls -la"
+                }
+            }
+        } 
+
+        stage("Archive Test Results") {
+            steps {
+                script {
+                    // Ensure directory exists and set proper permissions
+                    sh "mkdir -p output"
+                    sh "chmod -R 755 output"
+                    
+                    // Debug: List the files in the output directory to confirm test results exist
+                    sh "ls -la"
+                    sh "ls -la output"
+                    sh "ls -la output/test-results.trx" // Check the .trx file
+                    sh "ls -la output/test-results.xml" // Check the .xml file
+
+                    // Archive the test results (.trx file) in Jenkins
+                    archiveArtifacts artifacts: "output/*trx", allowEmptyArchive: false
+
+                    // Check if the .xml file is present before publishing
+                    sh "ls -la output"
+                    sh "cat output/test-results.xml"
+
+                    // Publish the test results in Jenkins (JUnit format)
+                    junit testResults: "output/test-results.xml", allowEmptyResults: false
+                }
+            }
+        }
+
+        stage("Clean Up") {
+            steps {
+                script {
+                    echo "Cleaning Docker Images"
+                    sh "docker rmi $DOCKER_IMG"
+                }
+            }
+        }
+
+        stage("SonarQube Analysis") {
+            steps {
+                withSonarQubeEnv("SonarQube Cloud") {
+                    sh '''
+                    ./gradlew sonarqube \
+                        -Dsonar.projectKey=TestProject \
+                        -Dsonar.organization=AdnanT-ADN \
+                        -Dsonar.host.url=https://sonarcloud.io \
+                        -Dsonar.login=$SONAR_TOKEN
+                    '''
+                }
+            }
+        }
+
+        stage('Quality Gate') {
+            steps {
+                script {
+                    timeout(time: 1, unit: 'MINUTES') {
+                        def qg = waitForQualityGate()
+                        if (qg.status != 'OK') {
+                            error "Pipeline aborted due to quality gate failure: ${qg.status}"
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    post {
+        always {
+            echo "Cleaning Docker Containers"
+            sh "docker system prune -f"
+        }
+
+        success {
+            echo "Pipeline Completed Successfully"
+        }
+
+        failure {
+            echo "Pipleline Failed"
+        }
+    }
+}

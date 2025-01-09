@@ -1,0 +1,25 @@
+# Dockerfile.test
+
+# Use the .NET SDK as the base image
+FROM mcr.microsoft.com/dotnet/sdk:8.0@sha256:35792ea4ad1db051981f62b313f1be3b46b1f45cadbaa3c288cd0d3056eefb83 AS test-env
+
+# Set the working directory
+WORKDIR /App
+
+# Copy the output from the build step
+COPY ./output /output
+
+# Install trx2junit tool to convert .trx to .xml
+RUN dotnet tool install -g trx2junit
+
+# Add the .NET tools directory to PATH
+ENV PATH="$PATH:/root/.dotnet/tools"
+
+# Run tests and generate test results report in JUnit XML format
+RUN dotnet test --logger "trx;LogFileName=/output/test-results.trx" 
+
+# Convert the .trx file to JUnit-compatible XML format
+RUN trx2junit /output/test-results.trx --output /output
+
+# List the contents of the output folder for verification
+RUN ls /output -la

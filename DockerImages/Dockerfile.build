@@ -1,0 +1,22 @@
+# Dockerfile.build
+
+# Use the .NET SDK as the base image
+FROM mcr.microsoft.com/dotnet/sdk:8.0@sha256:35792ea4ad1db051981f62b313f1be3b46b1f45cadbaa3c288cd0d3056eefb83 AS build-env
+
+# Set the working directory
+WORKDIR /App
+
+# Copy source code into the container
+COPY ./src ./src
+
+# Set the working directory to the solution directory
+WORKDIR /App/src
+
+# Restore dependencies for the solution
+RUN dotnet restore
+
+# Build the solution in Release mode (without restoring dependencies again)
+RUN dotnet build -c Release --no-restore
+
+# Copy the build output to a new location for the next Dockerfile
+COPY /App/src/bin/Release/net8.0 /output
