@@ -15,13 +15,6 @@ pipeline {
             }
         }
 
-        stage("Check Versions: Docker, GIT") {
-            steps {
-                sh "docker --version"
-                sh "git --version"
-            }
-        }
-
         stage("Build") {
             steps {
                 script {
